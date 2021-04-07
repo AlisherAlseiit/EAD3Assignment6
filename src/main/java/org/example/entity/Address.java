@@ -22,9 +22,11 @@ public class Address {
     private String street;
     private Integer buildingNo;
 
+    @Column(name = "library_id")
+    private  Long libraryId;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "library_id")
+    @JoinColumn(name = "library_id", insertable = false, updatable = false)
     private Library library;
 
     public Long getId() {
@@ -51,12 +53,12 @@ public class Address {
         this.buildingNo = buildingNo;
     }
 
-    public Library getLibrary() {
-        return library;
+    public Long getLibraryId() {
+        return libraryId;
     }
 
-    public void setLibrary(Library library) {
-        this.library = library;
+    public void setLibraryId(Long libraryId) {
+        this.libraryId = libraryId;
     }
 
     @Override

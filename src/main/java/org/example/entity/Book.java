@@ -48,13 +48,7 @@ public class Book {
 
 
 
-    public List<Library> getLibraryList() {
-        return libraryList;
-    }
 
-    public void setLibraryList(List<Library> libraryList) {
-        this.libraryList = libraryList;
-    }
 
     public Book(String status) {
         this.status = status;
@@ -98,13 +92,7 @@ public class Book {
         this.userId = userId;
     }
 
-    public User getUser() {
-        return user;
-    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public String getStatus() {
         return status;
