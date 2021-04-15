@@ -1,25 +1,13 @@
 package org.example.entity;
 
 import javax.persistence.*;
-
 import java.util.List;
-
-import static javax.persistence.GenerationType.SEQUENCE;
 
 @Entity
 public class Book {
 
     @Id
-    @SequenceGenerator(
-            name = "book_sequence",
-            sequenceName = "book_sequence",
-            allocationSize = 1
-
-    )
-    @GeneratedValue(
-            strategy = SEQUENCE,
-            generator = "book_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String author;

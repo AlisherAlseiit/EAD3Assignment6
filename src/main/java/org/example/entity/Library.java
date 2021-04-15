@@ -3,22 +3,11 @@ package org.example.entity;
 import javax.persistence.*;
 import java.util.List;
 
-import static javax.persistence.GenerationType.SEQUENCE;
-
 @Entity
 public class Library {
 
     @Id
-    @SequenceGenerator(
-            name =  "library_sequence",
-            sequenceName =  "library_sequence",
-            allocationSize = 1
-
-    )
-    @GeneratedValue(
-            strategy = SEQUENCE,
-            generator = "library_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
