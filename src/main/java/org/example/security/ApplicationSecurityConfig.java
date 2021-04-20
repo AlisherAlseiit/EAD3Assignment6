@@ -45,9 +45,11 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(), jwtConfig))
                 .addFilterAfter(new JwtTokenVerifier(jwtConfig), JwtUsernameAndPasswordAuthenticationFilter.class)
                 .authorizeRequests()
-                .antMatchers("/", "index", "/css/*").permitAll()
+                .antMatchers("/**", "index", "/css/*", "/html/*").permitAll()
                 .antMatchers("/libraries/**", "/books/**").hasAuthority("ADMIN")
                 .antMatchers("/users/registration").permitAll()
+                .antMatchers("/api/**").permitAll()
+                .antMatchers("/swagger-ui.html").permitAll()
                 .anyRequest()
                 .authenticated();
 

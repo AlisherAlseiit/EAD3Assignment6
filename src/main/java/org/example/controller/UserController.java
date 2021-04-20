@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import io.swagger.annotations.Api;
 import org.example.Service.impl.UserServiceImpl;
 import org.example.entity.Role;
 import org.example.entity.User;
@@ -11,12 +12,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.security.PermitAll;
 import java.util.Collections;
 import java.util.List;
 
 @RestController
 @RequestMapping("/users")
+@Api(value = "User Controller class", description = "This class allows to interact with User object")
 public class UserController {
 
     @Autowired
@@ -35,7 +36,6 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    @PermitAll
     public void registration(@RequestBody User user){
         Role role = roleRepository.findRole("USER");
         User newUser = new User();
